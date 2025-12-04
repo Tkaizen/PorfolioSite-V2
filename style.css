@@ -1,0 +1,309 @@
+:root {
+    --bg: #05070b;
+    --bg-elevated: rgba(15, 18, 28, 0.92);
+    --accent: #7f5af0;
+    --accent-soft: rgba(127, 90, 240, 0.4);
+    --accent-alt: #00d1ff;
+    --text: #f5f7ff;
+    --muted: #9ca3c7;
+    --border-subtle: rgba(148, 163, 184, 0.35);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.7);
+    --blur: 18px;
+    --transition-fast: 0.18s ease-out;
+    --transition-med: 0.25s ease-out;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+    color: var(--text);
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* subtle noise overlay */
+.noise {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    opacity: 0.12;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    mix-blend-mode: soft-light;
+    z-index: -1;
+}
+
+main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 4rem;
+}
+
+/* nav */
+
+.nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    background: linear-gradient(to bottom,
+            rgba(2, 6, 23, 0.9),
+            rgba(2, 6, 23, 0.6),
+            transparent);
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.nav a {
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0.15rem;
+    transition: color var(--transition-fast);
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    transition: width var(--transition-fast);
+}
+
+.nav a:hover {
+    color: var(--text);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* theme toggle */
+
+#theme-toggle {
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at 0 0, var(--accent-soft), transparent);
+    width: 40px;
+    height: 22px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#theme-toggle .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #e5e7ff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    transform: translateX(3px);
+    transition: transform var(--transition-med);
+}
+
+body.alt-accent #theme-toggle .dot {
+    transform: translateX(20px);
+}
+
+/* Theme toggle appearance for light mode */
+body.light-mode #theme-toggle .dot {
+    transform: translateX(20px);
+    background: #0b1020;
+    box-shadow: none;
+}
+
+/* hero */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+    gap: 3rem;
+    padding-top: 3rem;
+    align-items: center;
+}
+
+.eyebrow {
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin: 0.75rem 0;
+}
+
+.subtitle {
+    color: var(--muted);
+    max-width: 34rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0 1.25rem;
+}
+
+.btn {
+    border-radius: 999px;
+    padding: 0.8rem 1.4rem;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all var(--transition-med);
+}
+
+.btn.primary {
+    background: transparent;
+    border-color: var(--border-subtle);
+    color: var(--text);
+}
+
+.btn.primary:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.8);
+}
+
+.btn.ghost {
+    background: transparent;
+    border-color: var(--border-subtle);
+    color: var(--text);
+}
+
+.btn.ghost:hover {
+    background: radial-gradient(circle at top left,
+            var(--accent),
+            var(--accent-alt));
+    color: #0b1020;
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+}
+
+.btn.primary:hover {
+    background: radial-gradient(circle at top left,
+            var(--accent),
+            var(--accent-alt));
+    color: #0b1020;
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* Projects Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    transition: transform var(--transition-med), border-color var(--transition-med);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-soft);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card li {
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: rgba(127, 90, 240, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+}
+
+.footer {
+    text-align: center;
+}
+
+/* Light mode overrides 
+body.light-mode {
+    --bg: #ffffff;
+    --bg-elevated: rgba(255, 255, 255, 0.95);
+    --accent: #7f5af0;
+    --accent-soft: rgba(127, 90, 240, 0.12);
+    --accent-alt: #00a3cc;
+    --text: #0b1020;
+    --muted: #6b7280;
+    --border-subtle: rgba(14, 20, 30, 0.08);
+    --shadow-soft: 0 12px 36px rgba(9, 10, 12, 0.06);
+    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 60%, #ffffff 100%);
+    color: var(--text);
+}*/

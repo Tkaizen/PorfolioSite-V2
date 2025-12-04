@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KaizenLogs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="noise"></div>
+    <header class="nav">
+        <div class="logo">
+            <svg width="24" height="17" viewBox="0 0 48 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="var(--accent)" d="M15.4992 0H36.5808L21.0816 22.9729H0L15.4992 0Z" />
+                <path fill="var(--accent-alt)"
+                    d="M16.4224 25.102L10.4192 34H32.5008L48 11.0271H31.7024L22.2064 25.102H16.4224Z" />
+            </svg>
+            Kaizen<span>Logs</span>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button id="theme-toggle" aria-label="Toggle accent color">
+                <span class="dot"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">Creative Developer • Designer</p>
+                <h1>A talentless hero.</h1>
+                <p class="subtitle">
+                    The journey of a thousand miles begins with a single step
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="#contact" class="btn ghost">Contact Me</a>
+                </div>
+                <div class="hero-meta">
+                    <div>
+                        <span class="label">Focus</span>
+                        <span>Front‑end, UI, Motion</span>
+                    </div>
+                    <div>
+                        <span class="label">Location</span>
+                        <span>Online • Worldwide</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-orb">
+                <div class="orb"></div>
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="section-header">
+                <h2>About</h2>
+                <p>Short, honest and straight to the point.</p>
+            </div>
+            <div class="about-grid">
+                <article class="card">
+                    <h3>Who am I?</h3>
+                    <p>
+                        A developer who loves clean layouts, smooth animations and dark themes
+                        that feel like late‑night coffee and good music.
+                    </p>
+                </article>
+                <article class="card">
+                    <h3>What I do</h3>
+                    <ul>
+                        <li>Responsive web interfaces</li>
+                        <li>Design systems & style guides</li>
+                        <li>Micro‑interactions & motion</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Tech stack</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React / Vue basics</li>
+                        <li>Figma, Framer, Git</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects">
+            <div class="section-header">
+                <h2>Selected work</h2>
+                <p>Handpicked projects that show style and structure.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="ui">UI</button>
+                <button class="filter-btn" data-filter="experimental">Experimental</button>
+            </div>
+
+            <div class="grid" id="project-grid">
+                <!-- Cards are generated in script.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="year"></span> KaizenLogs. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
