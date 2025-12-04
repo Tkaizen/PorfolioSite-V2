@@ -33,9 +33,9 @@ const projects = [
         tags: ["React Expo, mongoDB, Node.js"]
     },
     {
-        title: "Coming Soon!",
-        description: "Coming Soon!",
-        tags: ["Coming Soon!"]
+        title: "Sunrise Cafe",
+        description: "A chill and relaxing cafe website with menu and reservation features.",
+        tags: ["HTML", "CSS", "JavaScript"]
     },
     {
         title: "Coming Soon!Coming Soon!",
